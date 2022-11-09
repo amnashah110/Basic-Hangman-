@@ -16,53 +16,52 @@ int main(){
 	int x, y, z = 0, tries = 7, position = 1, a = 0;
 	int check = 1, count1 = 0, count2 = 0, players = 0, choice;
 	
-    printf("ENTER WORD FOR OTHER PERSON TO GUESS: ");
-	        gets(word);
-	        printf("ENTER GENRE: ");
-	        gets(genre);
-	        printf("INPUT SUCCESSFULLY TAKEN. LET\'S START!");
-	        sleep(2);
+        printf("ENTER WORD FOR OTHER PERSON TO GUESS: ");
+	gets(word);
+	printf("ENTER GENRE: ");
+	gets(genre);
+	printf("INPUT SUCCESSFULLY TAKEN. LET\'S START!");
+	sleep(2);
 
-	        length1 = strlen(word);
-	        char empty[length1];
-	        for (x=0; x<length1; x++){
-		        if (word[x]==' '){
-			        empty[x]=' ';
-		        } else {
-		            empty[x]='_';
-	            }
-	    
+	length1 = strlen(word);
+	char empty[length1];
+	for (x=0; x<length1; x++){
+		if (word[x]==' '){
+			empty[x]=' ';
+		} else {
+		        empty[x]='_';
 	        }
-	        for (y=0; y<26; y++){
-		        alphabets[y]='_';
-	        }
+        }
+	for (y=0; y<26; y++){
+		alphabets[y]='_';
+	}
 
-	        // Clear screen
-	        system("cls"); 
-	        sleep(1); 
+	// Clear screen
+	system("cls"); 
+	sleep(1); 
 	
-	        length2 = strlen(genre);
-	        for (x=0; x<length2; x++){
-	            genre[x] = toupper(genre[x]);
-            }
-	        printf("GENRE IS: %s", genre);
-	        printf("\n");
-	        for (x=0; x<length1; x++){
+	length2 = strlen(genre);
+	for (x=0; x<length2; x++){
+	        genre[x] = toupper(genre[x]);
+        }
+	printf("GENRE IS: %s", genre);
+	printf("\n");
+	for (x=0; x<length1; x++){
 	        printf("%c", empty[x]);
 	        printf(" ");
-            }
-            printf("\n\n");
+        }
+        printf("\n\n");
 	
-		    do{
+	do{
 	        printf("ENTER YOUR GUESS: ");
 	        fflush(stdin);
 	        scanf("%c", &guess);
 	        guess = tolower(guess);
 	        for (y=0; y<25; y++){
-	    	    if (guess == alphabets[y]){
+	    	        if (guess == alphabets[y]){
 	    		    count2++;               
 		        }
-		    }
+		}
 	        for (x=0; x<length1; x++){
 	    	    word[x] = tolower(word[x]);
 			    if (guess == word[x] && count2==0){
